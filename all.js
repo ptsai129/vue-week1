@@ -1,5 +1,13 @@
-// 產品資料格式
-products: [
+//Vue起手式  
+const app = {
+    //關注點分離
+data(){
+        //function  (一定要使用傳統函式) return
+    return{
+    //放產品明細資料
+    temp:{},
+    // 產品資料格式
+    products: [
     {
       category: "甜甜圈",
       content: "尺寸：14x14cm",
@@ -52,13 +60,16 @@ products: [
     }
   ]
   
-  const app = document.querySelector("#app .table tbody");
-  console.log(app);
-  
-  function render (){
-    let template='';
-    products.forEach((item)=>{
-     console.log(item); 
-    })
-  }
-  
+
+        }
+    }
+}
+
+//建立實體
+//Vue是一個物件 createApp是Vue裡面其中一個方法
+//掛載  mount()內放dom元素
+Vue.createApp(app).mount('#app');
+
+
+
+
