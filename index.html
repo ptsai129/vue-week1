@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
                     <!--products陣列跑forEach-->
-                  <tr v-for="item in products">
+                  <tr v-for="item in products" :key="item.id">
                     <td width="150">{{ item.title }}</td>
                     <td width="120">
                       {{ item.origin_price }}
@@ -43,8 +43,8 @@
                       {{ item.price }}
                     </td>
                     <td width="150">
-                      <span class="text-success">啟用</span>
-                      <span>未啟用</span>
+                      <span  v-if="item.is_enabled" class="text-success">啟用</span>
+                      <span  v-else>未啟用</span>
                     </td>
                     <td width="120">
                     <!--綁監聽 點擊按鈕時 products內的資料會被放到temp空物件內-->
@@ -77,7 +77,7 @@
                   </div>
                 </div>
                 <!--因為不只有一張圖片 所以要跑forEach-->
-                <template v-for="Imgitem in temp.imagesUrl">
+                <template v-for="Imgitem in temp.imagesUrl" :key="index">
                   <img v-bind:src="Imgitem" v-bind:alt="temp.description" class="images m-2">
                 </template>
               </template>
